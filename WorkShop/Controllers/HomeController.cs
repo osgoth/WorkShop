@@ -25,9 +25,35 @@ namespace TestApp.Controllers
             return View(oam);
         }
 
+        [HttpPost]
+        public ActionResult AssignMaster(int OID, int MID)
+        {
+            AM.UpdMaster(OID, MID);
+
+            List<Master> masts = DB.MastersLoad();
+            List<Order> ords = AM.WithoutMaster();
+
+            OrderAndMaster oam = new OrderAndMaster
+            { master = masts, order = ords };
+
+            return View(oam);
+        }
+
         public ActionResult CompleteOrder()
         {
-            return View();
+            List<Order> ords = CO.WithoutPrice();
+
+            return View(ords);
+        }
+
+        [HttpPost]
+        public ActionResult CompleteOrder(int OID, int price)
+        {
+            CO.UpdPrice(OID, price);
+
+            List<Order> ords = CO.WithoutPrice();
+
+            return View(ords);
         }
 
         public ActionResult ShowReport()
@@ -85,14 +111,8 @@ namespace TestApp.Controllers
 
 
 
-            return Content($"<h1>Order created successfully!</h1>");
-        }
-
-        [HttpPost]
-        public ActionResult UpdMaster(int OID, int MID)
-        {
-            AM.UpdMaster(OID, MID);
             return PartialView();
         }
+        
     }
 }

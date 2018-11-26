@@ -8,17 +8,17 @@
 <br /><br /><br />
 <div class="container">
     <h1>Show Report</h1>
-
-    <table class="table table-striped table-sm">
+   
+    <table class="table table-striped table-hover table-sm">
         <thead>
             <tr>
-                <th scope="col">Order ID</th>
-                <th scope="col">Client Name</th>
-                <th scope="col">Car Model</th>
-                <th scope="col">Execution Starts</th>
-                <th scope="col">Execution Ends</th>
-                <th scope="col">Master Name</th>
-                <th scope="col">Price</th>
+                <th scope="col"><h5>Order ID</h5></th>
+                <th scope="col"><h5>Client Name</h5></th>
+                <th scope="col"><h5>Car Model</h5></th>
+                <th scope="col"><h5>Execution Starts</h5></th>
+                <th scope="col"><h5>Execution Ends</h5></th>
+                <th scope="col"><h5>Master Name</h5></th>
+                <th scope="col"><h5>Price</h5></th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +32,7 @@
                     <td>@x.ExecEndDate.ToString("dd.MM.yyy")</td>
                     <td>@x.MasterName</td>
                     <td>@x.Price</td>
+                    <td></td>
                 </tr>
             }
         </tbody>

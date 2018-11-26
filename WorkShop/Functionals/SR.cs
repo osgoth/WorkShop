@@ -21,7 +21,8 @@ namespace WorkShop.Functionals
                                                 + " from Orders" 
                                                 + " join Clients on Clients.ID = Orders.ClientID"
                                                 + " join Cars on Cars.ID = Orders.CarID"
-                                                + " join Masters on Masters.ID = Orders.MasterID", con);
+                                                + " join Masters on Masters.ID = Orders.MasterID"
+                                                + " where Price is not null and ExecEndDate is not null and MasterID is not null", con);
 
                 SqlDataReader red = com.ExecuteReader();
 

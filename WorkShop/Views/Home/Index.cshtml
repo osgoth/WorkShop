@@ -2,22 +2,28 @@
     ViewBag.Title = "Home";
 }
 <br /><br /><br />
-<div class="container-fluid">
+<div class="container">
     <h5>Please, enter client credentials, car information and problem information:</h5>
-        <form action="Create" method="post">
-            client name: <br />
-            <input type="text" name="name" /><br />
-            phone number: <br />
-            <input type="text" name="pnum" /><br />
-            car model: <br />
-            <input type="text" name="model" /><br />
-            car distribution year: <br />
-            <input type="text" name="year" /><br />
-            car number: <br />
-            <input type="text" name="cnum" /><br />
-            problem info: <br />
-            <textarea name="pinfo" cols="40" rows="4"></textarea><br /><br />
-    
-            <input type="submit" value="submit" />
-        </form>
+    @using (Ajax.BeginForm("Create", "Home", new AjaxOptions { UpdateTargetId = "updated" }))
+    {
+
+        <span>client name:</span> <br />
+        <input type="text" class="form-control col-lg-2" name="name" /><br />
+        <span>phone number:</span> <br />
+        <input type="text" class="form-control col-lg-2" name="pnum" /><br />
+        <span>car model:</span> <br />
+        <input type="text" class="form-control col-lg-2" name="model" /><br />
+        <span>car distribution year: <br /></span>
+        <input type="text" class="form-control col-lg-2" name="year" /><br />
+        <span>car number: </span><br />
+        <input type="text" class="form-control col-lg-2" name="cnum" /><br />
+        <span>problem info:</span> <br />
+        <textarea class="form-control-sm" name="pinfo" cols="40" rows="9"></textarea>
+
+        <input type="submit" class="btn btn-cyan" value="submit" />
+
+    }
+    <div id="updated"></div>
 </div>
+@Scripts.Render("~/scripts/js/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

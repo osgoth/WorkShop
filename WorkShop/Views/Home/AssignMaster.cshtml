@@ -7,41 +7,45 @@
 
 
 <br /><br /><br />
-<div class="container">
-    <h1>Assign Master</h1>
+            <div class="container">
+                <h1>Assign Master</h1>
+                @using (Ajax.BeginForm("UpdMaster", new AjaxOptions { UpdateTargetId = "updated" }))
+                {
+                    <table class="table table-striped table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col"><h5>Order ID</h5></th>
+                                <th scope="col"><h5>Client ID</h5></th>
+                                <th scope="col"><h5>Car ID</h5></th>
+                                <th scope="col"><h5>Problem Info</h5></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model.order)
+                            {
+                                <tr>
+                                    <td>@x.ID</td>
+                                    <td>@x.ClientID</td>
+                                    <td>@x.CarID</td>
+                                    <td>@x.ProblemInfo</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
 
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th scope="col">Order ID</th>
-                <th scope="col">Client ID</th>
-                <th scope="col">Car ID</th>
-                <th scope="col">Problem Info</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var x in Model.order)
-            {
-                <tr>
-                    <td>@x.ID</td>
-                    <td>@x.ClientID</td>
-                    <td>@x.CarID</td>
-                    <td>@x.ProblemInfo</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    @using (Ajax.BeginForm("UpdMaster", new AjaxOptions { UpdateTargetId = "updated" }))
-    {
-        <span>input Order ID:</span><br />
-        <input type="number" name="OID" /><br />
-        <span>input Master ID:</span><br />
-        <input type="number" name="MID" /><br />
-        <input type="submit" value="submit" />
-    }
-    <br />
-    <div id="updated"></div>
+                @using (Html.BeginForm("AssignMaster", "Home", FormMethod.Post))
+                {
+                    <div class="from-inline">
+                        <span>Choose Order ID:</span>
+                        @Html.DropDownList("OID", new SelectList(Model.order.Select(i => i.ID).ToList()), "Order", new { @class = "form-control form-control-sm col-lg-1" })
+                    </div>
+                    <div class="from-inline">
+                        <span>Choose Master ID:</span>
+                         @Html.DropDownList("MID", new SelectList(Model.master.Select(i => i.ID).ToList()), "Master", new { @class = "form-control form-control-sm col-lg-1" })
+                    </div><br />
+                   <input type="submit" value="submit" />
+                  }
 </div>
 @Scripts.Render("~/scripts/js/jquery-3.3.1.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

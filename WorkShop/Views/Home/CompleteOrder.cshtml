@@ -1,8 +1,47 @@
-﻿@model WorkShop.Models.Report
+﻿@using WorkShop.Models
+@model List<WorkShop.Models.Order>
 
 @{
     ViewBag.Title = "CompleteOrder";
 }
+<br /><br /><br />
+            <div class="container">
+                <h2>CompleteOrder</h2>
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col"><h5>Order ID</h5></th>
+                            <th scope="col"><h5>Client ID</h5></th>
+                            <th scope="col"><h5>Car ID</h5></th>
+                            <th scope="col"><h5>Master ID</h5></th>
+                            <th scope="col"><h5>Problem Info</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.ID</td>
+                                <td>@x.ClientID</td>
+                                <td>@x.CarID</td>
+                                <td>@x.MasterID</td>
+                                <td>@x.ProblemInfo</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
-<h2>CompleteOrder</h2>
+                @using (Html.BeginForm("CompleteOrder", "Home", FormMethod.Post))
+                {
+                    <div class="from-inline">
+                        <span>Choose Order ID:</span>
+                        @Html.DropDownList("OID", new SelectList(Model.Select(i => i.ID).ToList()), "Order", new { @class = "form-control form-control-sm col-lg-1" })
+                    </div>
+                    <div class="from-inline">
+                        <span>Set Price:</span>
+                        <input type="Number" class="form-control col-lg-2" name="price">
+                    </div><br />
+                    <input type="submit" value="submit" />
+                }
 
+            </div>

@@ -152,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Functionals\AM.cs" />
+    <Compile Include="Functionals\CO.cs" />
     <Compile Include="Functionals\DB.cs" />
     <Compile Include="Functionals\SR.cs" />
     <Compile Include="Global.asax.cs">
@@ -247,6 +248,7 @@
     <Content Include="Views\Home\CompleteOrder.cshtml" />
     <Content Include="Views\Home\UpdMaster.cshtml" />
     <Content Include="Views\Home\ShowReport.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
