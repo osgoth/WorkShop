@@ -6,22 +6,35 @@
     <h5>Please, enter client credentials, car information and problem information:</h5>
     @using (Ajax.BeginForm("Create", "Home", new AjaxOptions { UpdateTargetId = "updated" }))
     {
-
-        <span>client name:</span> <br />
-        <input type="text" class="form-control col-lg-2" name="name" /><br />
-        <span>phone number:</span> <br />
-        <input type="text" class="form-control col-lg-2" name="pnum" /><br />
-        <span>car model:</span> <br />
-        <input type="text" class="form-control col-lg-2" name="model" /><br />
-        <span>car distribution year: <br /></span>
-        <input type="text" class="form-control col-lg-2" name="year" /><br />
-        <span>car number: </span><br />
-        <input type="text" class="form-control col-lg-2" name="cnum" /><br />
-        <span>problem info:</span> <br />
-        <textarea class="form-control-sm" name="pinfo" cols="40" rows="9"></textarea>
-
-        <input type="submit" class="btn btn-cyan" value="submit" />
-
+    <table>
+        <tr>
+            <td>client name:</td>
+            <td><input type="text" class="form-control" name="name" /></td>
+        </tr>
+        <tr>
+            <td>phone number:</td>
+            <td><input type="text" class="form-control" name="pnum" /></td>
+        </tr>
+        <tr>
+            <td>car model:</td>
+            <td><input type="text" class="form-control" name="model" /></td>
+        </tr>
+        <tr>
+            <td>car distribution year:</td>
+            <td><input type="text" class="form-control" name="year" /></td>
+        </tr>
+        <tr>
+            <td>car number:</td>
+            <td><input type="text" class="form-control" name="cnum" /></td>
+        </tr>
+        <tr>
+            <td>problem info:</td>
+            <td><textarea class="form-control-sm" name="pinfo" cols="40" rows="9"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="submit" /></td>
+        </tr>
+    </table>
     }
     <div id="updated"></div>
 </div>
