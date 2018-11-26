@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<br /><br /><br />
+<div class="container-fluid">
+    <h5>Please, enter client credentials, car information and problem information:</h5>
+        <form action="Create" method="post">
+            client name: <br />
+            <input type="text" name="name" /><br />
+            phone number: <br />
+            <input type="text" name="pnum" /><br />
+            car model: <br />
+            <input type="text" name="model" /><br />
+            car distribution year: <br />
+            <input type="text" name="year" /><br />
+            car number: <br />
+            <input type="text" name="cnum" /><br />
+            problem info: <br />
+            <textarea name="pinfo" cols="40" rows="4"></textarea><br /><br />
+    
+            <input type="submit" value="submit" />
+        </form>
+</div>

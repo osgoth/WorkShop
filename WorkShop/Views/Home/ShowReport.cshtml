@@ -1,0 +1,40 @@
+﻿@using WorkShop.Models
+@model List<WorkShop.Models.Report>
+
+@{
+    ViewBag.Title = "ShowReport";
+}
+
+<br /><br /><br />
+<div class="container">
+    <h1>Show Report</h1>
+
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Client Name</th>
+                <th scope="col">Car Model</th>
+                <th scope="col">Execution Starts</th>
+                <th scope="col">Execution Ends</th>
+                <th scope="col">Master Name</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.OrderID</td>
+                    <td>@x.ClientName</td>
+                    <td>@x.CarModel</td>
+                    <td>@x.ExecStartDate.ToString("dd.MM.yyy")</td>
+                    <td>@x.ExecEndDate.ToString("dd.MM.yyy")</td>
+                    <td>@x.MasterName</td>
+                    <td>@x.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

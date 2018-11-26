@@ -1,0 +1,47 @@
+﻿@using WorkShop.Models
+@model WorkShop.Models.OrderAndMaster
+
+@{
+    ViewBag.Title = "AssignMaster";
+}
+
+
+<br /><br /><br />
+<div class="container">
+    <h1>Assign Master</h1>
+
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Client ID</th>
+                <th scope="col">Car ID</th>
+                <th scope="col">Problem Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.order)
+            {
+                <tr>
+                    <td>@x.ID</td>
+                    <td>@x.ClientID</td>
+                    <td>@x.CarID</td>
+                    <td>@x.ProblemInfo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @using (Ajax.BeginForm("UpdMaster", new AjaxOptions { UpdateTargetId = "updated" }))
+    {
+        <span>input Order ID:</span><br />
+        <input type="number" name="OID" /><br />
+        <span>input Master ID:</span><br />
+        <input type="number" name="MID" /><br />
+        <input type="submit" value="submit" />
+    }
+    <br />
+    <div id="updated"></div>
+</div>
+@Scripts.Render("~/scripts/js/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

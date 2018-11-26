@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Index</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Material Design Bootstrap -->
+    <link href="~/Content/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark black scrolling-navbar">
+        <div class="container">
+            <a href="Index" class="navbar-brand waves-effect">
+                <strong class="white-text">WorkShop</strong>
+            </a>
+            <button class="navbar-toggler waves-effect" type="button"
+                    data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="AssignMaster" class="nav-link waves-effect">Assign Master</a></li>
+                    <li class="nav-item"><a href="CompleteOrder" class="nav-link waves-effect">Complete Order</a></li>
+                    <li class="nav-item"><a href="ShowReport" class="nav-link waves-effect">Show Report</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - WorkShop Application</p>
+        </footer>
+    </div>
+
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/Scripts/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/Scripts/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/Scripts/js/mdb.min.js"></script>
+</body>
+
+</html>
+
